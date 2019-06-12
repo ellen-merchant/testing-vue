@@ -1,0 +1,9 @@
+dist: trusty
+before_install:
+  - npm i npm@latest -g
+before_script:
+  - npm install
+script:
+  - php run test
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

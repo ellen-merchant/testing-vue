@@ -1,0 +1,35 @@
+{
+  "name": "testing-vue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha-webpack --webpack-config webpack.config.js --require test/setup.js test/**/*.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ellllllen/testing-vue.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ellllllen/testing-vue/issues"
+  },
+  "homepage": "https://github.com/ellllllen/testing-vue#readme",
+  "devDependencies": {
+    "@vue/test-utils": "^1.0.0-beta.29",
+    "expect": "^24.8.0",
+    "jsdom": "^15.1.1",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^6.1.4",
+    "mocha-webpack": "^2.0.0-beta.0",
+    "vue-template-compiler": "^2.6.10",
+    "vue-test-utils": "^1.0.0-beta.11",
+    "webpack": "^4.33.0",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {
+    "vue": "^2.6.10"
+  }
+}
