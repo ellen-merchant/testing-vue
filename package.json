@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha-webpack --webpack-config webpack.config.js --require test/setup.js test/**/*.spec.js"
+    "test": "mocha-webpack --webpack-config webpack.config-test.js --require test/setup.js test/**/*.spec.js",
+    "cover": "cross-env NODE_ENV=coverage nyc --reporter=lcov --reporter=text npm run test"
   },
   "repository": {
     "type": "git",
@@ -19,11 +20,14 @@
   "homepage": "https://github.com/ellllllen/testing-vue#readme",
   "devDependencies": {
     "@vue/test-utils": "^1.0.0-beta.29",
+    "cross-env": "^5.2.0",
     "expect": "^24.8.0",
+    "istanbul-instrumenter-loader": "^3.0.1",
     "jsdom": "^15.1.1",
     "jsdom-global": "^3.0.2",
     "mocha": "^6.1.4",
     "mocha-webpack": "^2.0.0-beta.0",
+    "nyc": "^14.1.1",
     "vue-template-compiler": "^2.6.10",
     "vue-test-utils": "^1.0.0-beta.11",
     "webpack": "^4.33.0",
@@ -32,5 +36,12 @@
   "dependencies": {
     "vue": "^2.6.10",
     "vue-cli": "^2.9.6"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.js"
+    ],
+    "instrument": false,
+    "sourceMap": false
   }
 }
