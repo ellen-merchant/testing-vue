@@ -1,6 +1,7 @@
 var nodeExternals = require('webpack-node-externals');
 var isCoverage = process.env.NODE_ENV === 'coverage';
 var path = require('path');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
     output: {
@@ -9,9 +10,12 @@ module.exports = {
         devtoolFallbackModuleFilenameTemplate: '[absolute-resource-path]?[hash]'
     },
     module: {
-        rules: [].concat(
+        rules: [{
+            test: /\.vue$/,
+            use: 'vue-loader'
+        }].concat(
             isCoverage ? {
-                test: /\.js$|\.jsx$/,
+                test: /\.js$|\.jsx$|\.vue$/,
                 use: {
                     loader: 'istanbul-instrumenter-loader',
                     options: {
@@ -24,7 +28,9 @@ module.exports = {
         ),
         // ...
     },
-    target: 'node', // webpack should compile node compatible code
     externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
-    devtool: "inline-cheap-module-source-map"
+    devtool: "inline-cheap-module-source-map",
+    plugins: [
+        new VueLoaderPlugin()
+    ]
 };
