@@ -32,5 +32,6 @@ module.exports = {
     devtool: "inline-cheap-module-source-map",
     plugins: [
         new VueLoaderPlugin()
-    ]
+    ],
+    mode: "development"
 };

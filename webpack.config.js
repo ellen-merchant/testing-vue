@@ -4,5 +4,6 @@ module.exports = {
             test: /\.vue$/,
             use: 'vue-loader'
         }]
-    }
+    },
+    mode: "production"
 };
